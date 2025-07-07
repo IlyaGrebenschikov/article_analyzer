@@ -10,3 +10,7 @@ class ServerSettings(BaseSettings):
 
     port: int = 8080
     host: str = "0.0.0.0"
+
+
+class MainSettings(BaseSettings):
+    server: ServerSettings
