@@ -5,7 +5,6 @@ from dishka.integrations.fastapi import setup_dishka
 from .ioc import V1AdaptersProvider
 from src.certification_portal.presentation.api.v1.settings import V1Settings
 
-
 def v1_setup_dependencies(
     app: FastAPI,
     v1_settings: V1Settings,

@@ -10,7 +10,7 @@ from sqlalchemy.ext.asyncio import (
     async_sessionmaker,
 )
 
-from src.certification_portal.domain.db_exceptions import (
+from src.certification_portal.domain.database.exceptions import (
     CommitError,
     RollbackError
     )
