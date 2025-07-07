@@ -15,6 +15,12 @@ services:
     env_file:
       - .env
     command: python -m src.certification_portal
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsSL http://${SERVER_HEALTHCHECK_HOST}:${SERVER_PORT}/api/v1/healthcheck"]
+      interval: 10s
+      timeout: 60s
+      retries: 5
+      start_period: 10s
 
 networks:
   certification_portal.network:

@@ -7,7 +7,7 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 WORKDIR /usr/certification_portal
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
+    apt-get install -y --no-install-recommends curl \
     && pip install --upgrade pip \
     && pip install poetry \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
