@@ -1,0 +1,22 @@
+services:
+  api:
+    profiles: [ "api" ]
+    container_name: certification_portal.api
+    build:
+      context: .
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
+    networks:
+      - certification_portal.network
+    volumes:
+      - ./src/certification_portal:/usr/certification_portal/src/certification_portal
+    env_file:
+      - .env
+    command: python -m src.certification_portal
+
+networks:
+  certification_portal.network:
+    name: certification_portal.network
+    driver: bridge
