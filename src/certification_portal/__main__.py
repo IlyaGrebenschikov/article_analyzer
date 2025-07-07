@@ -11,8 +11,10 @@ def main() -> None:
     main_settings = load_main_settings()
     v1_settings = load_v1_settings()
     app = init_main_app(
-        init_v1_app()
+        init_v1_app(v1_settings.app),
+        settings=main_settings
     )
+    
     run_api_uvicorn(app, main_settings.server)
 
 

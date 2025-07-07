@@ -2,8 +2,12 @@ from typing import Optional, Any
 
 from fastapi import FastAPI
 
+from .settings import MainSettings
+from .middlewares import setup_global_middlewares
+
 def init_main_app(
     *sub_apps: tuple[str, FastAPI, Optional[str]],
+    settings: MainSettings,
     **kwargs: Any
 ) -> FastAPI:
     app = FastAPI(
@@ -12,8 +16,9 @@ def init_main_app(
         swagger_ui_oauth2_redirect_url=None,
         **kwargs
     )
-    
     for apps in sub_apps:
         app.mount(*apps)
-                
+        
+    setup_global_middlewares(app, settings.cors)    
+         
     return app
