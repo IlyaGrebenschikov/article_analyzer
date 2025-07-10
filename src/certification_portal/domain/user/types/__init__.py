@@ -1,3 +1,4 @@
+from .creation import UserCreationType
 from .identity import (
     UserIdType,
      UserLoginType,
@@ -5,6 +6,7 @@ from .identity import (
       )
 
 __all__ = (
+    "UserCreationType",
     "UserIdType",
     "UserLoginType",
     "UserIdentityType"
