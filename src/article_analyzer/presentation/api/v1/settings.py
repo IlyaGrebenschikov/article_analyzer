@@ -1,7 +1,10 @@
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+from src.article_analyzer.domain.database.settings import DatabaseSettingsInterface
 
 class V1AppSettings(BaseSettings):
     model_config = SettingsConfigDict(
@@ -16,10 +19,8 @@ class V1AppSettings(BaseSettings):
     redoc_url: Optional[str] = "/redoc"
 
 
-class V1Settings(BaseSettings):
+@dataclass
+class V1Settings:
     root_dir: Path
     app: V1AppSettings
-
-
-def get_root_dir_path() -> Path:
-    return Path(__file__).resolve().parent.parent.parent
+    database: DatabaseSettingsInterface

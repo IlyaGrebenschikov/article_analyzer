@@ -1,5 +1,7 @@
 from typing import Optional
+from pathlib import Path
 
+from src.article_analyzer.domain.database.settings import DatabaseSettingsInterface
 from src.article_analyzer.presentation.api.settings import (
     CORSSettings,
     ServerSettings,
@@ -8,15 +10,20 @@ from src.article_analyzer.presentation.api.settings import (
 from src.article_analyzer.presentation.api.v1.settings import (
     V1AppSettings, 
     V1Settings,
-    get_root_dir_path
     )
 
+def get_root_dir_path() -> Path:
+    return Path(__file__).resolve().parent.parent.parent
+
+
 def load_v1_settings(
-    v1_app_settings: Optional[V1AppSettings] = None
+    database_settings: DatabaseSettingsInterface,
+    v1_app_settings: Optional[V1AppSettings] = None,
     ) -> V1Settings:
     return V1Settings(
         root_dir=get_root_dir_path(),
-        app=v1_app_settings or V1AppSettings()
+        app=v1_app_settings or V1AppSettings(),
+        database=database_settings
     )
 
 

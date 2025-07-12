@@ -1,7 +1,11 @@
+from typing import Optional
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from sqlalchemy import URL
 
-class PostgresSettings(BaseSettings):
+from src.article_analyzer.domain.database.settings import DatabaseSettingsInterface
+
+class PostgresSettings(BaseSettings, DatabaseSettingsInterface):
     model_config = SettingsConfigDict(
         env_file='.env',
         env_file_encoding='utf-8',
@@ -9,11 +13,11 @@ class PostgresSettings(BaseSettings):
         extra='ignore'
     )
     drivername: str = 'postgresql+asyncpg'
-    host: str
-    port: int
-    username: str
-    password: str
-    database: str
+    host: Optional[str] = None
+    port: Optional[int] = None
+    username: Optional[str] = None
+    password: Optional[str] = None
+    database: Optional[str] = None
     
     @property
     def url_obj(self) -> URL:
