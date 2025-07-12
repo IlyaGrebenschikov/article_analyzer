@@ -3,17 +3,17 @@ from typing import Optional, Type, overload
 from typing_extensions import Unpack
 
 from .base import BaseRepository
-from src.certification_portal.domain.database.exceptions import InvalidParamsError
-from src.certification_portal.domain.user.types import (
+from src.article_analyzer.domain.database.exceptions import InvalidParamsError
+from src.article_analyzer.domain.user.types import (
     UserCreationType,
     UserIdentityType,
     UserIdType,
     UserLoginType
 )
-from src.certification_portal.domain.user.interfaces import (
+from src.article_analyzer.domain.user.interfaces import (
     UserRepositoryInterface
     )
-from src.certification_portal.infrastructure.database.models import UserModel
+from src.article_analyzer.infrastructure.database.models import UserModel
 
 class UserRepository(BaseRepository[UserModel], UserRepositoryInterface):
     __slots__ = ()

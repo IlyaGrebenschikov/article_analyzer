@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from src.certification_portal.presentation.api.settings import CORSSettings
+from src.article_analyzer.presentation.api.settings import CORSSettings
 
 def setup_global_middlewares(app: FastAPI, settings: CORSSettings) -> None:
     app.add_middleware(

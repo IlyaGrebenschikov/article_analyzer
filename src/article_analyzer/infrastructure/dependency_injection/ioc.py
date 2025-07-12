@@ -1,6 +1,6 @@
 from dishka.integrations.fastapi import FastapiProvider
 
-from src.certification_portal.presentation.api.v1.settings import V1Settings
+from src.article_analyzer.presentation.api.v1.settings import V1Settings
 
 class V1AdaptersProvider(FastapiProvider):
     def __init__(

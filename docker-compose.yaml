@@ -1,7 +1,7 @@
 services:
   api:
     profiles: [ "api" ]
-    container_name: certification_portal.api
+    container_name: article_analyzer.api
     build:
       context: .
     expose:
@@ -9,12 +9,12 @@ services:
     ports:
       - "8080:8080"
     networks:
-      - certification_portal.network
+      - article_analyzer.network
     volumes:
-      - ./src/certification_portal:/usr/certification_portal/src/certification_portal
+      - ./src/article_analyzer:/usr/article_analyzer/src/article_analyzer
     env_file:
       - .env
-    command: python -m src.certification_portal
+    command: python -m src.article_analyzer
     healthcheck:
       test: ["CMD-SHELL", "curl -fsSL http://${SERVER_HEALTHCHECK_HOST}:${SERVER_PORT}/api/v1/healthcheck"]
       interval: 10s
@@ -23,6 +23,6 @@ services:
       start_period: 10s
 
 networks:
-  certification_portal.network:
-    name: certification_portal.network
+  article_analyzer.network:
+    name: article_analyzer.network
     driver: bridge

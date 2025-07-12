@@ -4,8 +4,8 @@ from typing import Generic, Type
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from .crud import CRUDRepository
-from src.certification_portal.infrastructure.database.models.base import ModelType
-from src.certification_portal.domain.database.repository import Repository
+from src.article_analyzer.infrastructure.database.models.base import ModelType
+from src.article_analyzer.domain.database.repository import Repository
 
 
 class BaseRepository(Repository, Generic[ModelType]):

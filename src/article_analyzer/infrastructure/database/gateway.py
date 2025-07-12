@@ -2,8 +2,8 @@ from typing import Type
 
 from .core import TransactionManager
 from .repositories import UserRepository
-from src.certification_portal.domain.common.interfaces import BaseGateway
-from src.certification_portal.domain.database.repository import RepositoryType
+from src.article_analyzer.domain.common.interfaces import BaseGateway
+from src.article_analyzer.domain.database.repository import RepositoryType
 
 class DBGateway(BaseGateway):
     __slots__ = ("manager",)

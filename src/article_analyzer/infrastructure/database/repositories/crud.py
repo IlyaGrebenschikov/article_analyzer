@@ -21,8 +21,8 @@ from sqlalchemy import (
 )
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.certification_portal.domain.database.crud import AbstractCRUDRepository
-from src.certification_portal.infrastructure.database.models.base import ModelType
+from src.article_analyzer.domain.database.crud import AbstractCRUDRepository
+from src.article_analyzer.infrastructure.database.models.base import ModelType
 
 
 class CRUDRepository(AbstractCRUDRepository[ModelType]):

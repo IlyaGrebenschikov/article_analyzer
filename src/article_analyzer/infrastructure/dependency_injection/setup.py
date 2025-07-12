@@ -3,7 +3,7 @@ from dishka import make_async_container
 from dishka.integrations.fastapi import setup_dishka
 
 from .ioc import V1AdaptersProvider
-from src.certification_portal.presentation.api.v1.settings import V1Settings
+from src.article_analyzer.presentation.api.v1.settings import V1Settings
 
 def v1_setup_dependencies(
     app: FastAPI,

@@ -3,7 +3,7 @@ from typing import Any
 import uvicorn
 from fastapi import FastAPI
 
-from src.certification_portal.presentation.api.settings import ServerSettings
+from src.article_analyzer.presentation.api.settings import ServerSettings
 
 def run_api_uvicorn(
     app: FastAPI,

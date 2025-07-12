@@ -1,11 +1,11 @@
 from typing import Optional
 
-from src.certification_portal.presentation.api.settings import (
+from src.article_analyzer.presentation.api.settings import (
     CORSSettings,
     ServerSettings,
     MainSettings
     )
-from src.certification_portal.presentation.api.v1.settings import (
+from src.article_analyzer.presentation.api.v1.settings import (
     V1AppSettings, 
     V1Settings,
     get_root_dir_path

@@ -2,9 +2,9 @@ FROM python:3.12-slim-bookworm
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PYTHONPATH=/usr/certification_portal/
+    PYTHONPATH=/usr/article_analyzer/
 
-WORKDIR /usr/certification_portal
+WORKDIR /usr/article_analyzer
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends curl \
