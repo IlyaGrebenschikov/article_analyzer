@@ -21,8 +21,3 @@ class CORSSettings(BaseSettings):
     methods: list[str] = ["*"]
     headers: list[str] = ["*"]
     origins: list[str] = ["*"]
-
-
-class MainSettings(BaseSettings):
-    server: ServerSettings
-    cors: CORSSettings

@@ -3,7 +3,7 @@ from pathlib import Path
 from src.article_analyzer.presentation.api.v1.settings import V1AppSettings
 from src.article_analyzer.domain.database.settings import DatabaseSettingsInterface
 from src.article_analyzer.infrastructure.database.settings import PostgresSettings
-from src.article_analyzer.presentation.api.v1.settings import V1Settings
+from src.article_analyzer.domain.settings import V1Settings
 
 class V1SettingsProvider:
     def _provide_root_dir_path(self) -> Path:

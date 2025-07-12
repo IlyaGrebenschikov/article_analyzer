@@ -2,8 +2,8 @@ from typing import Optional, Any
 
 from fastapi import FastAPI
 
-from .settings import MainSettings
 from .middlewares import setup_global_middlewares
+from src.article_analyzer.domain.settings import MainSettings
 
 def init_main_app(
     *sub_apps: tuple[str, FastAPI, Optional[str]],
