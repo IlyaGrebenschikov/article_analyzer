@@ -1,11 +1,11 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
 from sqlalchemy import URL
 
-class DatabaseSettings(BaseSettings):
+class PostgresSettings(BaseSettings):
     model_config = SettingsConfigDict(
         env_file='.env',
         env_file_encoding='utf-8',
-        env_prefix='DATABASE_',
+        env_prefix='POSTGRES_',
         extra='ignore'
     )
     drivername: str = 'postgresql+asyncpg'

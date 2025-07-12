@@ -8,8 +8,11 @@ services:
       - "8080"
     ports:
       - "8080:8080"
+    depends_on:
+      - postgres
     networks:
       - article_analyzer.network
+      - article_analyzer.postgres.network
     volumes:
       - ./src/article_analyzer:/usr/article_analyzer/src/article_analyzer
     env_file:
@@ -21,8 +24,35 @@ services:
       timeout: 60s
       retries: 5
       start_period: 10s
+    
+  postgres:
+    profiles: [ "api" ]
+    container_name: article_analyzer.postgres
+    image: "postgres:17-alpine"
+    ports:
+      - "5432:5432"
+    networks:
+      - article_analyzer.postgres.network
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_USERNAME}
+      POSTGRES_USER: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DATABASE}
+    volumes:
+      - article_analyzer.postgres.data:/var/lib/postgresql/data:rw
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DATABASE} -U $${POSTGRES_USER}"]
+      interval: 10s
+      timeout: 60s
+      retries: 5
+      start_period: 10s
+
+volumes:
+  article_analyzer.postgres.data:
+    name: article_analyzer.postgres.data
 
 networks:
   article_analyzer.network:
     name: article_analyzer.network
     driver: bridge
+  article_analyzer.postgres.network:
+    name: article_analyzer.postgres.network
