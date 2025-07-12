@@ -1,6 +1,8 @@
 from abc import abstractmethod
 from typing import Protocol
 
+from sqlalchemy import URL
+
 class DatabaseSettingsInterface(Protocol):
     @property
     @abstractmethod
@@ -8,4 +10,4 @@ class DatabaseSettingsInterface(Protocol):
 
     @property
     @abstractmethod
-    def url_obj(self): ...
+    def url_obj(self) -> URL: ...
